@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chatrapathi Bendapudi — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#07080a;
+  --bg2:#0d0f11;
+  --bg3:#141618;
+  --bg4:#1c1e21;
+  --text:#e4e0db;
+  --muted:#6e6b66;
+  --faint:#252422;
+  --border:#2a2825;
+  --acc:#c2b9a8;
+  --acc2:#9a9088;
+  --warm:#d4c4a8;
+  --hi:#e8ddd0;
+  --syne:'Syne',sans-serif;
+  --sans:'DM Sans',sans-serif;
+  --serif:'Playfair Display',serif;
+  --mono:'DM Mono',monospace;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--sans);font-weight:300;
+  line-height:1.7;overflow-x:hidden;
+}
+
+body::before{
+  content:'';position:fixed;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.04) 3px,rgba(0,0,0,0.04) 4px);
+  pointer-events:none;z-index:9999;
+}
+
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9998;opacity:0.4;
+}
+
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.cursor{display:inline-block;width:3px;height:0.9em;background:var(--warm);vertical-align:text-bottom;animation:blink 1.2s step-end infinite;margin-left:4px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem 3rem;
+  background:rgba(7,8,10,0.88);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--faint);
+}
+.nav-logo{
+  font-family:var(--serif);font-size:1.1rem;font-weight:700;
+  color:var(--text);text-decoration:none;letter-spacing:0.01em;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.nav-logo-tag{font-family:var(--mono);font-size:0.58rem;color:var(--muted);letter-spacing:0.1em;border:1px solid var(--border);padding:0.15rem 0.4rem}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  font-family:var(--mono);font-size:0.72rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);text-decoration:none;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-badge{
+  font-family:var(--mono);font-size:0.65rem;letter-spacing:0.08em;
+  color:var(--muted);border:1px solid var(--border);padding:0.3rem 0.8rem;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.bdot{width:5px;height:5px;border-radius:50%;background:#5c9e70;box-shadow:0 0 6px #5c9e7077}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:0 3rem 5rem;
+  position:relative;overflow:hidden;
+}
+.hero-corner-r{
+  position:absolute;top:7.5rem;right:3rem;
+  font-family:var(--mono);font-size:0.65rem;color:var(--muted);
+  letter-spacing:0.08em;text-align:right;line-height:2;opacity:0.55;
+}
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(4.5rem,10vw,9.5rem);
+  font-weight:900;line-height:1.05;
+  letter-spacing:-0.025em;margin-bottom:3rem;margin-top:5rem;
+}
+.hero-title em{font-style:italic;color:var(--warm);font-weight:700}
+
+.hero-bottom{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  border-top:1px solid var(--faint);padding-top:2rem;gap:3rem;
+}
+.hero-desc{
+  max-width:420px;font-size:0.92rem;color:var(--muted);
+  line-height:1.85;font-weight:300;
+}
+.hero-desc strong{color:var(--text);font-weight:400}
+
+.hero-links{display:flex;flex-direction:column;align-items:flex-end;gap:0.8rem}
+.hero-link{
+  display:flex;align-items:center;gap:0.6rem;
+  text-decoration:none;color:var(--muted);
+  font-family:var(--mono);font-size:0.72rem;letter-spacing:0.08em;
+  transition:color 0.2s;
+}
+.hero-link:hover{color:var(--text)}
+.hero-link .arrow{color:var(--warm);transition:transform 0.2s}
+.hero-link:hover .arrow{transform:translate(2px,-2px)}
+
+/* ── TICKER ── */
+.ticker{
+  border-top:1px solid var(--faint);border-bottom:1px solid var(--faint);
+  background:var(--bg2);padding:0.85rem 0;overflow:hidden;
+  display:flex;align-items:center;gap:2rem;
+}
+.ticker-label{
+  font-family:var(--mono);font-size:0.62rem;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--muted);white-space:nowrap;
+  padding:0 2rem;border-right:1px solid var(--border);
+  flex-shrink:0;
+}
+.ticker-track{display:flex;gap:0;animation:ticker 28s linear infinite;width:max-content}
+.ticker-item{
+  font-family:var(--mono);font-size:0.75rem;color:var(--muted);
+  white-space:nowrap;letter-spacing:0.1em;padding:0 2rem;
+  border-right:1px solid var(--border);
+}
+.ticker-item:hover{color:var(--text)}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTION SHARED ── */
+.section{padding:7rem 3rem;border-top:1px solid var(--faint)}
+
+.s-eyebrow{
+  font-family:var(--mono);font-size:0.65rem;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:0.7rem;
+  display:flex;align-items:center;gap:0.8rem;
+}
+.s-eyebrow::before{content:'';width:1.5rem;height:1px;background:var(--border)}
+
+.s-title{
+  font-family:var(--serif);font-size:clamp(2.5rem,5vw,4.5rem);
+  font-weight:900;letter-spacing:-0.025em;line-height:0.95;
+  margin-bottom:0.6rem;
+}
+.s-title em{font-style:italic;color:var(--warm);font-weight:700}
+
+.s-meta{
+  font-family:var(--mono);font-size:0.68rem;color:var(--muted);
+  letter-spacing:0.08em;margin-bottom:4rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.s-meta::after{content:'';flex:1;height:1px;background:var(--faint)}
+
+/* ── VIDEO CARDS ── */
+.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+
+.video-card{
+  position:relative;background:var(--bg2);
+  border:1px solid var(--border);overflow:hidden;cursor:pointer;
+}
+
+.v-placeholder{
+  width:100%;aspect-ratio:16/9;background:var(--bg3);
+  border:2px dashed var(--border);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:0.8rem;color:var(--muted);
+  transition:border-color 0.2s;position:relative;overflow:hidden;
+}
+.v-placeholder:hover{border-color:var(--acc2)}
+.v-ph-icon{font-size:2rem;opacity:0.3}
+.v-ph-text{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.4;text-align:center;line-height:1.8}
+
+.v-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(7,8,10,0.85) 0%,transparent 50%);
+  display:flex;align-items:flex-end;padding:1.2rem;
+  opacity:0;transition:opacity 0.25s;
+}
+.video-card:hover .v-overlay{opacity:1}
+
+.v-info{width:100%}
+.v-tag{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem}
+.v-title{font-family:var(--syne);font-size:1rem;font-weight:700;color:var(--text)}
+
+.v-meta-bar{
+  padding:0.9rem 1rem;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--border);
+}
+.v-name{font-family:var(--syne);font-size:0.88rem;font-weight:600;color:var(--text)}
+.v-year{font-family:var(--mono);font-size:0.65rem;color:var(--muted)}
+
+/* ── BRANDING GRID ── */
+.brand-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+
+.brand-desc{font-size:0.95rem;color:var(--muted);line-height:1.9;font-weight:300}
+.brand-desc p{margin-bottom:1.2rem}
+.brand-desc strong{color:var(--text);font-weight:400}
+.brand-tag-row{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.5rem}
+.brand-tag{
+  font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;
+  text-transform:uppercase;border:1px solid var(--border);
+  padding:0.3rem 0.7rem;color:var(--muted);
+}
+
+.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.img-placeholder{
+  aspect-ratio:4/3;background:var(--bg3);
+  border:2px dashed var(--border);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:0.6rem;color:var(--muted);
+  transition:border-color 0.2s;cursor:pointer;
+}
+.img-placeholder:hover{border-color:var(--acc2)}
+.img-ph-icon{font-size:1.6rem;opacity:0.25}
+.img-ph-text{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.35;text-align:center;line-height:1.8}
+
+/* ── CHALANA CHITRAM ── */
+.cc-hero{
+  background:var(--bg2);border:1px solid var(--border);
+  padding:3rem;margin-bottom:3rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+}
+.cc-badge{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-family:var(--mono);font-size:0.62rem;letter-spacing:0.12em;
+  text-transform:uppercase;border:1px solid var(--border);
+  padding:0.3rem 0.8rem;color:var(--muted);margin-bottom:1.5rem;
+}
+.cc-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:900;letter-spacing:-0.02em;line-height:1;margin-bottom:1rem}
+.cc-title em{font-style:italic;color:var(--warm)}
+.cc-body{font-size:0.9rem;color:var(--muted);line-height:1.9}
+.cc-body strong{color:var(--text);font-weight:400}
+
+.cc-roles{display:flex;flex-direction:column;gap:0.8rem;margin-top:1.5rem}
+.cc-role{
+  display:flex;align-items:center;gap:0.8rem;
+  font-family:var(--mono);font-size:0.72rem;letter-spacing:0.06em;color:var(--muted);
+}
+.cc-role::before{content:'▸';color:var(--warm);font-size:0.7rem}
+
+.episodes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.ep-card{background:var(--bg2);border:1px solid var(--border);overflow:hidden}
+.ep-img{
+  aspect-ratio:9/12;background:var(--bg3);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:0.6rem;color:var(--muted);border:2px dashed var(--border);
+}
+.ep-body{padding:1.2rem}
+.ep-num{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem}
+.ep-name{font-family:var(--syne);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:0.4rem}
+.ep-desc{font-size:0.78rem;color:var(--muted);line-height:1.7}
+
+/* ── EH IDK ── */
+.ehidk-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.ehidk-logo{
+  font-family:var(--serif);font-size:3.5rem;font-weight:900;
+  font-style:italic;color:var(--warm);line-height:1;margin-bottom:1rem;
+  letter-spacing:-0.02em;
+}
+.ehidk-desc{font-size:0.92rem;color:var(--muted);line-height:1.9;margin-bottom:1.5rem}
+.ehidk-desc strong{color:var(--text);font-weight:400}
+.yt-btn{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  font-family:var(--mono);font-size:0.72rem;letter-spacing:0.08em;
+  text-transform:uppercase;border:1px solid var(--border);
+  padding:0.7rem 1.2rem;color:var(--muted);text-decoration:none;
+  transition:all 0.2s;
+}
+.yt-btn:hover{border-color:var(--acc2);color:var(--text)}
+.ehidk-media{display:flex;flex-direction:column;gap:1rem}
+.yt-placeholder{
+  aspect-ratio:16/9;background:var(--bg3);
+  border:2px dashed var(--border);
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:0.8rem;color:var(--muted);
+  transition:border-color 0.2s;
+}
+.yt-placeholder:hover{border-color:var(--acc2)}
+
+/* ── ABOUT ── */
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.about-text{font-size:0.95rem;color:var(--muted);line-height:1.9}
+.about-text p{margin-bottom:1.3rem}
+.about-text strong{color:var(--text);font-weight:400}
+
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{
+  display:grid;grid-template-columns:4rem 1fr;gap:1.5rem;
+  padding:1.5rem 0;border-bottom:1px solid var(--faint);
+}
+.tl-year{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.06em;color:var(--muted);padding-top:0.2rem}
+.tl-role{font-family:var(--syne);font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.2rem}
+.tl-org{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.06em;color:var(--acc2)}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem}
+.contact-big{
+  font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);
+  font-weight:900;letter-spacing:-0.03em;line-height:0.9;margin-bottom:1.5rem;
+}
+.contact-big em{font-style:italic;color:var(--warm)}
+.contact-note{font-size:0.88rem;color:var(--muted);line-height:1.8;margin-bottom:2.5rem;font-weight:300}
+
+.contact-links{display:flex;flex-direction:column;gap:0.7rem}
+.clink{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem 1.3rem;border:1px solid var(--border);background:var(--bg2);
+  text-decoration:none;color:var(--muted);font-size:0.88rem;
+  transition:all 0.18s;
+}
+.clink:hover{border-color:var(--acc2);color:var(--text);background:var(--bg3)}
+.clink-l{display:flex;align-items:center;gap:0.9rem}
+.clink-tag{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--border)}
+.clink:hover .clink-tag{color:var(--muted)}
+.clink-arrow{color:var(--warm);opacity:0;font-size:0.8rem;transition:opacity 0.18s}
+.clink:hover .clink-arrow{opacity:1}
+
+.form-wrap{display:flex;flex-direction:column;gap:1rem}
+.fl{display:flex;flex-direction:column;gap:0.4rem}
+.fl label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+.fi{
+  background:var(--bg2);border:1px solid var(--border);
+  color:var(--text);font-family:var(--sans);font-size:0.88rem;
+  font-weight:300;padding:0.85rem 1rem;outline:none;
+  transition:border-color 0.2s;
+}
+.fi::placeholder{color:var(--muted)}
+.fi:focus{border-color:var(--acc2)}
+textarea.fi{resize:vertical;min-height:110px}
+.send-btn{
+  background:transparent;border:1px solid var(--acc2);
+  color:var(--text);font-family:var(--syne);font-size:0.82rem;
+  font-weight:600;letter-spacing:0.08em;padding:0.9rem 1.8rem;
+  cursor:pointer;transition:all 0.2s;display:inline-flex;
+  align-items:center;gap:0.5rem;
+}
+.send-btn:hover{background:var(--acc2);color:var(--bg)}
+
+/* ── FOOTER ── */
+footer{
+  padding:2rem 3rem;border-top:1px solid var(--faint);
+  display:flex;justify-content:space-between;align-items:center;
+}
+footer span,footer a{
+  font-family:var(--mono);font-size:0.65rem;
+  letter-spacing:0.08em;color:var(--muted);text-decoration:none;
+}
+footer a:hover{color:var(--text)}
+.footer-links{display:flex;gap:2rem}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#top">
+    chatrapathiportfoliov1
+    <span class="nav-logo-tag">CB®</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#video">Skills</a></li>
+    <li><a href="#branding">Branding</a></li>
+    <li><a href="#projects">Project</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-badge">
+    <div class="bdot"></div>
+    Open to work
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-corner-r">
+    PORTFOLIO v1.0<br>
+    2025
+  </div>
+
+  <h1 class="hero-title">
+    Chatrapathi<br>
+    Bendapudi
+  </h1>
+
+  <div class="hero-bottom">
+    <p class="hero-desc">
+      Video editor and designer.
+    </p>
+    <div class="hero-links">
+      <a class="hero-link" href="#video">
+        <span>See my work</span>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="hero-link" href="mailto:chatrapathibendapud@gmail.com">
+        <span>chatrapathibendapud@gmail.com</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="hero-link" href="https://instagram.com/mp4.scb" target="_blank">
+        <span>@mp4.scb</span>
+        <span class="arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <span class="ticker-label">Craft /</span>
+  <div style="overflow:hidden;flex:1">
+    <div class="ticker-track">
+      <span class="ticker-item">Adobe Premiere Pro</span>
+      <span class="ticker-item">Motion Graphics</span>
+      <span class="ticker-item">Colour Grading</span>
+      <span class="ticker-item">Brand Identity</span>
+      <span class="ticker-item">Creative Direction</span>
+      <span class="ticker-item">Film Marketing</span>
+      <span class="ticker-item">Social Media</span>
+      <span class="ticker-item">Aftermovies</span>
+      <span class="ticker-item">Campaign Design</span>
+      <span class="ticker-item">Visual Storytelling</span>
+      <span class="ticker-item">Adobe Premiere Pro</span>
+      <span class="ticker-item">Motion Graphics</span>
+      <span class="ticker-item">Colour Grading</span>
+      <span class="ticker-item">Brand Identity</span>
+      <span class="ticker-item">Creative Direction</span>
+      <span class="ticker-item">Film Marketing</span>
+      <span class="ticker-item">Social Media</span>
+      <span class="ticker-item">Aftermovies</span>
+      <span class="ticker-item">Campaign Design</span>
+      <span class="ticker-item">Visual Storytelling</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1 — VIDEO EDITING -->
+<section class="section" id="video">
+  <div data-aos="fade-up">
+    <div class="s-eyebrow">Section 01 — Reel</div>
+    <div class="s-title">Video Editing &<br><em>Motion Design</em></div>
+    <div class="s-meta">Aftermovies · Animations · Short Films &nbsp;·&nbsp; 2023 – 2025</div>
+  </div>
+
+  <div class="video-grid">
+    <div class="video-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="v-placeholder">
+        <span class="v-ph-icon">▶</span>
+        <span class="v-ph-text">Drop your video or<br>YouTube embed here<br><br>Aftermovie / Event Film</span>
+      </div>
+      <div class="v-overlay">
+        <div class="v-info">
+          <div class="v-tag">Aftermovie</div>
+          <div class="v-title">Your Video Title Here</div>
+        </div>
+      </div>
+      <div class="v-meta-bar">
+        <span class="v-name">Aftermovie — Title</span>
+        <span class="v-year">2025</span>
+      </div>
+    </div>
+
+    <div class="video-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="v-placeholder">
+        <span class="v-ph-icon">▶</span>
+        <span class="v-ph-text">Drop your video or<br>YouTube embed here<br><br>Animation / Motion Graphics</span>
+      </div>
+      <div class="v-overlay">
+        <div class="v-info">
+          <div class="v-tag">Motion Design</div>
+          <div class="v-title">Your Video Title Here</div>
+        </div>
+      </div>
+      <div class="v-meta-bar">
+        <span class="v-name">Animation — Title</span>
+        <span class="v-year">2025</span>
+      </div>
+    </div>
+
+    <div class="video-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="v-placeholder">
+        <span class="v-ph-icon">▶</span>
+        <span class="v-ph-text">Drop your video or<br>YouTube embed here<br><br>Short Film / Creative Edit</span>
+      </div>
+      <div class="v-overlay">
+        <div class="v-info">
+          <div class="v-tag">Short Film</div>
+          <div class="v-title">Your Video Title Here</div>
+        </div>
+      </div>
+      <div class="v-meta-bar">
+        <span class="v-name">Short Film — Title</span>
+        <span class="v-year">2024</span>
+      </div>
+    </div>
+
+    <div class="video-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="v-placeholder">
+        <span class="v-ph-icon">▶</span>
+        <span class="v-ph-text">Drop your video or<br>YouTube embed here<br><br>Brand Film / Campaign Video</span>
+      </div>
+      <div class="v-overlay">
+        <div class="v-info">
+          <div class="v-tag">Brand Film</div>
+          <div class="v-title">Your Video Title Here</div>
+        </div>
+      </div>
+      <div class="v-meta-bar">
+        <span class="v-name">Brand Film — Title</span>
+        <span class="v-year">2024</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 — BRANDING -->
+<section class="section" id="branding">
+  <div data-aos="fade-up">
+    <div class="s-eyebrow">Section 02 — Identity</div>
+    <div class="s-title">Branding &<br><em>Creative Direction</em></div>
+    <div class="s-meta">Visual Identity · Campaign Design · Social Media</div>
+  </div>
+
+  <div class="brand-wrap" data-aos="fade-up">
+    <div>
+      <div class="brand-desc">
+        <p>
+          I approach branding as <strong>visual storytelling at scale</strong> — every
+          colour, typeface, and frame is a deliberate decision that shapes how an
+          audience feels before they even read a word.
+        </p>
+        <p>
+          At <strong>GStudio</strong> as Head of Multimedia & Marketing, I've led creative
+          output across campaigns, social content, and internal branding. From
+          concept to delivery, I own the visual identity end-to-end.
+        </p>
+        <p>
+          For <strong>Chalana Chitram Film Festival</strong>, I built the entire brand from
+          scratch — logo, colour system, typography, social templates, and all
+          campaign collateral for a multi-episode marketing rollout.
+        </p>
+        <div class="brand-tag-row">
+          <span class="brand-tag">Brand Identity</span>
+          <span class="brand-tag">Typography</span>
+          <span class="brand-tag">Campaign Design</span>
+          <span class="brand-tag">Social Media</span>
+          <span class="brand-tag">Print</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="img-grid" data-aos="fade-up" data-aos-delay="100">
+        <div class="img-placeholder">
+          <span class="img-ph-icon">⊞</span>
+          <span class="img-ph-text">Drop branding<br>image here</span>
+        </div>
+        <div class="img-placeholder">
+          <span class="img-ph-icon">⊞</span>
+          <span class="img-ph-text">Drop branding<br>image here</span>
+        </div>
+        <div class="img-placeholder">
+          <span class="img-ph-icon">⊞</span>
+          <span class="img-ph-text">Drop branding<br>image here</span>
+        </div>
+        <div class="img-placeholder">
+          <span class="img-ph-icon">⊞</span>
+          <span class="img-ph-text">Drop branding<br>image here</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — CHALANA CHITRAM -->
+<section class="section" id="cc">
+  <div data-aos="fade-up">
+    <div class="s-eyebrow">Section 03 — Film Festival</div>
+    <div class="s-title">Chalana<br><em>Chitram</em></div>
+    <div class="s-meta">Film Festival · Marketing Campaign · Brand Identity</div>
+  </div>
+
+  <div class="cc-hero" data-aos="fade-up">
+    <div>
+      <div class="cc-badge">✦ Chalana Chitram Film Festival</div>
+      <div class="cc-title">Head of Marketing<br>&amp; <em>Design</em></div>
+      <p class="cc-body">
+        Chalana Chitram is a film festival I was a core part of — not just as an
+        organiser but as the <strong>creative engine behind everything the audience saw</strong>.
+        I owned the complete brand identity, all campaign visuals, social media
+        strategy, and the marketing rollout from reveal to event day.
+      </p>
+      <div class="cc-roles">
+        <div class="cc-role">Head of Marketing &amp; Design</div>
+        <div class="cc-role">Core Organising Committee Member</div>
+        <div class="cc-role">Complete Brand Identity — Logo, Colours, Typography</div>
+        <div class="cc-role">Social Media Strategy &amp; Content</div>
+        <div class="cc-role">3-Episode Title Reveal Campaign</div>
+      </div>
+    </div>
+
+    <div class="img-placeholder" style="aspect-ratio:4/3" data-aos="fade-left">
+      <span class="img-ph-icon">⊞</span>
+      <span class="img-ph-text">Drop Chalana Chitram<br>key art / poster here</span>
+    </div>
+  </div>
+
+  <div data-aos="fade-up">
+    <div style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem">
+      <span>Title Reveal Campaign</span>
+      <span style="flex:1;height:1px;background:var(--faint)"></span>
+      <span>3 Episodes</span>
+    </div>
+  </div>
+
+  <div class="episodes">
+    <div class="ep-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="ep-img">
+        <span class="img-ph-icon">⊞</span>
+        <span class="img-ph-text">Episode 1<br>Campaign Visual</span>
+      </div>
+      <div class="ep-body">
+        <div class="ep-num">Episode 01 — Title Reveal</div>
+        <div class="ep-name">The Tease</div>
+        <p class="ep-desc">First drop of the campaign — identity hinted, curiosity built. Minimal reveal, maximum intrigue.</p>
+      </div>
+    </div>
+
+    <div class="ep-card" data-aos="fade-up" data-aos-delay="120">
+      <div class="ep-img">
+        <span class="img-ph-icon">⊞</span>
+        <span class="img-ph-text">Episode 2<br>Campaign Visual</span>
+      </div>
+      <div class="ep-body">
+        <div class="ep-num">Episode 02 — Title Reveal</div>
+        <div class="ep-name">The Build</div>
+        <p class="ep-desc">Layers of the story unfold. The brand identity starts to take shape — colour, motion, voice.</p>
+      </div>
+    </div>
+
+    <div class="ep-card" data-aos="fade-up" data-aos-delay="240">
+      <div class="ep-img">
+        <span class="img-ph-icon">⊞</span>
+        <span class="img-ph-text">Episode 3<br>Campaign Visual</span>
+      </div>
+      <div class="ep-body">
+        <div class="ep-num">Episode 03 — Title Reveal</div>
+        <div class="ep-name">The Reveal</div>
+        <p class="ep-desc">Full reveal. The festival name drops, the brand lands, and the audience is ready.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:2rem" data-aos="fade-up">
+    <div style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem">Campaign Collateral &amp; Branding Assets</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem">
+      <div class="img-placeholder" style="aspect-ratio:1"><span class="img-ph-icon">⊞</span><span class="img-ph-text">Brand asset</span></div>
+      <div class="img-placeholder" style="aspect-ratio:1"><span class="img-ph-icon">⊞</span><span class="img-ph-text">Social post</span></div>
+      <div class="img-placeholder" style="aspect-ratio:1"><span class="img-ph-icon">⊞</span><span class="img-ph-text">Poster</span></div>
+      <div class="img-placeholder" style="aspect-ratio:1"><span class="img-ph-icon">⊞</span><span class="img-ph-text">Brand asset</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — EH IDK -->
+<section class="section" id="projects">
+  <div data-aos="fade-up">
+    <div class="s-eyebrow">Section 04 — Project</div>
+    <div class="s-title"><em>Eh Idk</em></div>
+    <div class="s-meta">YouTube Channel · Podcast · Creative Videos · Vizag</div>
+  </div>
+
+  <div class="ehidk-wrap">
+    <div data-aos="fade-up">
+      <div class="ehidk-logo">Eh Idk.</div>
+      <p class="ehidk-desc">
+        A YouTube channel I run with my friends out of <strong>Visakhapatnam</strong>.
+        No big brief, no client — just a creative outlet where we make
+        <strong>chill podcasts and casual creative videos</strong> about things
+        we actually care about.
+      </p>
+      <p class="ehidk-desc">
+        It's where I experiment freely — editing style, pacing, tone, format.
+        Everything you see on here is personal work, made for the love of it.
+      </p>
+      <a class="yt-btn" href="https://youtube.com/@ehidk" target="_blank">
+        ▶ &nbsp; Watch on YouTube
+      </a>
+    </div>
+
+    <div class="ehidk-media" data-aos="fade-up" data-aos-delay="100">
+      <div class="yt-placeholder">
+        <span class="v-ph-icon">▶</span>
+        <span class="v-ph-text">Drop your favourite Eh Idk<br>episode / YouTube embed here</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem">
+        <div class="yt-placeholder" style="aspect-ratio:16/9">
+          <span class="v-ph-icon" style="font-size:1.2rem">▶</span>
+          <span class="v-ph-text" style="font-size:0.58rem">Episode / Video</span>
+        </div>
+        <div class="yt-placeholder" style="aspect-ratio:16/9">
+          <span class="v-ph-icon" style="font-size:1.2rem">▶</span>
+          <span class="v-ph-text" style="font-size:0.58rem">Episode / Video</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 — ABOUT -->
+<section class="section" id="about">
+  <div data-aos="fade-up">
+    <div class="s-eyebrow">Section 05 — Profile</div>
+    <div class="s-title">About<br><em>Me.</em></div>
+    <div class="s-meta">B.Tech CS · GITAM University · Visakhapatnam</div>
+  </div>
+
+  <div class="about-wrap">
+    <div class="about-text" data-aos="fade-up">
+      <p>
+        Hey — I'm <strong>Chatrapathi Bendapudi</strong>. I'm a 3rd year B.Tech
+        Computer Science student at <strong>GITAM University, Visakhapatnam</strong>,
+        but most of my energy goes into creative work.
+      </p>
+      <p>
+        I'm the <strong>Head of Multimedia & Marketing at GStudio</strong> —
+        where I lead creative output, campaign strategy, and visual direction
+        for the studio and its productions.
+      </p>
+      <p>
+        I was the <strong>Head of Marketing & Design for Chalana Chitram</strong>
+        and a core member of its organising committee — building the entire
+        brand identity and running the marketing rollout for the film festival.
+      </p>
+      <p>
+        On the side, I co-create <strong>Eh Idk</strong> — a YouTube channel
+        based out of Vizag where we make podcasts and creative videos with zero
+        agenda and full creative freedom.
+      </p>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="100">
+      <div style="font-family:var(--mono);font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;padding-bottom:0.8rem;border-bottom:1px solid var(--faint)">Experience &amp; Roles</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">2025<br>Now</div>
+          <div>
+            <div class="tl-role">Head of Multimedia &amp; Marketing</div>
+            <div class="tl-org">GStudio</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2024<br>2025</div>
+          <div>
+            <div class="tl-role">Head of Marketing &amp; Design</div>
+            <div class="tl-org">Chalana Chitram Film Festival</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2024<br>2025</div>
+          <div>
+            <div class="tl-role">Core Organising Committee</div>
+            <div class="tl-org">Chalana Chitram Film Festival</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2023<br>Now</div>
+          <div>
+            <div class="tl-role">Co-Creator &amp; Editor</div>
+            <div class="tl-org">Eh Idk — YouTube Channel</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2022<br>Now</div>
+          <div>
+            <div class="tl-role">B.Tech Computer Science</div>
+            <div class="tl-org">GITAM University, Visakhapatnam</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — CONTACT -->
+<section class="section" id="contact">
+  <div data-aos="fade-up">
+    <div class="s-eyebrow">Section 06 — Let's Talk</div>
+    <div class="s-title">Get in<br><em>Touch.</em></div>
+    <div class="s-meta">Open for collabs, projects &amp; freelance</div>
+  </div>
+
+  <div class="contact-grid">
+    <div data-aos="fade-up">
+      <div class="contact-big">
+        Let's<br>Make<br>
+        <em>Something</em><br>
+        Great.
+      </div>
+      <p class="contact-note">
+        Open to video editing, creative direction, social media,
+        and marketing projects. Whether it's a brand film, a campaign,
+        a music video, or just a conversation — reach out.
+      </p>
+      <div class="contact-links">
+        <a class="clink" href="mailto:chatrapathibendapud@gmail.com">
+          <div class="clink-l">
+            <span class="clink-tag">Email</span>
+            chatrapathibendapud@gmail.com
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a class="clink" href="https://instagram.com/mp4.scb" target="_blank">
+          <div class="clink-l">
+            <span class="clink-tag">Instagram</span>
+            @mp4.scb
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a class="clink" href="https://youtube.com/@ehidk" target="_blank">
+          <div class="clink-l">
+            <span class="clink-tag">YouTube</span>
+            Eh Idk
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="120">
+      <div class="form-wrap">
+        <div class="fl">
+          <label>Name</label>
+          <input class="fi" type="text" placeholder="What should I call you?"/>
+        </div>
+        <div class="fl">
+          <label>Email</label>
+          <input class="fi" type="email" placeholder="your@email.com"/>
+        </div>
+        <div class="fl">
+          <label>What's the project?</label>
+          <textarea class="fi" placeholder="Tell me about it — brief, vibe, timeline..."></textarea>
+        </div>
+        <button class="send-btn">Send it over →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Chatrapathi Bendapudi &nbsp;·&nbsp; GITAM University, Vizag</span>
+  <div class="footer-links">
+    <a href="https://instagram.com/mp4.scb" target="_blank">@mp4.scb</a>
+    <a href="mailto:chatrapathibendapud@gmail.com">Email</a>
+    <a href="#top">↑ Top</a>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, easing: 'ease-out-quart', once: true, offset: 60 });
+</script>
+</body>
+</html>
