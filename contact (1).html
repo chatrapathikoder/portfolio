@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Contact — Chatrapathi Bendapudi</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- SITEWIDE TERMINAL GRID + GLOW -->
+<div class="site-grid" aria-hidden="true"></div>
+<div class="site-spotlight" aria-hidden="true"></div>
+
+<!-- CUSTOM CURSOR (desktop / mouse only) -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    chatrapathiportfoliov1
+    <span class="nav-logo-tag">CB®</span>
+  </a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-check">
+  <label for="nav-toggle" class="nav-burger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </label>
+  <ul class="nav-links">
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-badge" type="button" aria-pressed="false">
+    <div class="bdot"></div>
+    <span class="badge-text">Open to work</span>
+  </button>
+</nav>
+
+<div class="term-prompt" data-aos="fade-up">
+  <span class="term-user">chatrapathi@portfolio</span><span class="term-sep">:</span><span class="term-path">~/contact</span><span class="term-dollar">$</span>
+  <span class="term-cmd">./reach_out.sh</span><span class="cursor"></span>
+</div>
+
+<!-- SECTION 6 — CONTACT -->
+<section class="section" id="contact">
+  <div data-aos="fade-up">
+    <div class="s-eyebrow">Contact — Let's Talk</div>
+    <div class="s-title">Get in<br><em>Touch.</em></div>
+    <div class="s-meta">Open for collabs, projects &amp; freelance</div>
+  </div>
+
+  <div class="contact-grid">
+    <div data-aos="fade-up">
+      <div class="contact-big">
+        Let's<br>Make<br>
+        <em>Something</em><br>
+        Great.
+      </div>
+      <p class="contact-note">
+        Open to video editing, creative direction, social media,
+        and marketing projects. Whether it's a brand film, a campaign,
+        a music video, or just a conversation — reach out.
+      </p>
+      <div class="contact-links">
+        <a class="clink" href="mailto:chatrapathibendapud@gmail.com">
+          <div class="clink-l">
+            <span class="clink-tag">Email</span>
+            chatrapathibendapud@gmail.com
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a class="clink" href="https://instagram.com/mp4.scb" target="_blank">
+          <div class="clink-l">
+            <span class="clink-tag">Instagram</span>
+            @mp4.scb
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a class="clink" href="https://www.youtube.com/@wedontknowfrfr" target="_blank">
+          <div class="clink-l">
+            <span class="clink-tag">YouTube</span>
+            Eh Idk
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="120">
+      <form class="form-wrap" id="contact-form" novalidate>
+        <div class="fl">
+          <label for="cf-name">Name</label>
+          <input class="fi" type="text" id="cf-name" name="name" placeholder="What should I call you?"/>
+          <span class="fi-error" id="cf-name-error"></span>
+        </div>
+        <div class="fl">
+          <label for="cf-email">Email</label>
+          <input class="fi" type="email" id="cf-email" name="email" placeholder="your@email.com"/>
+          <span class="fi-error" id="cf-email-error"></span>
+        </div>
+        <div class="fl">
+          <label for="cf-phone">Phone</label>
+          <input class="fi" type="tel" id="cf-phone" name="phone" placeholder="10-digit mobile number"/>
+          <span class="fi-error" id="cf-phone-error"></span>
+        </div>
+        <div class="fl">
+          <label for="cf-message">What's the project?</label>
+          <textarea class="fi" id="cf-message" name="message" placeholder="Tell me about it — brief, vibe, timeline..."></textarea>
+          <span class="fi-error" id="cf-message-error"></span>
+        </div>
+        <button class="send-btn" type="submit">Send it over →</button>
+        <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Chatrapathi Bendapudi &nbsp;·&nbsp; GITAM University, Vizag</span>
+  <div class="footer-links">
+    <a href="https://instagram.com/mp4.scb" target="_blank">@mp4.scb</a>
+    <a href="mailto:chatrapathibendapud@gmail.com">Email</a>
+    <a href="#">↑ Top</a>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, easing: 'ease-out-quart', once: false, offset: 60 });
+
+  // "Open to work" badge — tap/click to flip between available (green) and busy (red)
+  document.querySelectorAll('.nav-badge').forEach(function(badge){
+    var label = badge.querySelector('.badge-text');
+    badge.addEventListener('click', function(){
+      var busy = badge.classList.toggle('is-busy');
+      badge.setAttribute('aria-pressed', busy ? 'true' : 'false');
+      if (label) label.textContent = busy ? 'Not available' : 'Open to work';
+    });
+  });
+
+  // ── CONTACT FORM VALIDATION ──
+  (function(){
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+
+    var fields = {
+      name:    { el: document.getElementById('cf-name'),    error: document.getElementById('cf-name-error') },
+      email:   { el: document.getElementById('cf-email'),   error: document.getElementById('cf-email-error') },
+      phone:   { el: document.getElementById('cf-phone'),   error: document.getElementById('cf-phone-error') },
+      message: { el: document.getElementById('cf-message'), error: document.getElementById('cf-message-error') }
+    };
+
+    // Standard practical email pattern (not full RFC 5322, but catches real typos)
+    var emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;
+    // Indian mobile number: optional +91 / 91 prefix, then 10 digits starting 6-9
+    var phonePattern = /^(?:\+?91[\s-]?)?[6-9]\d{9}$/;
+
+    function setError(field, message){
+      field.el.classList.toggle('is-invalid', !!message);
+      if (field.error) field.error.textContent = message || '';
+    }
+
+    function validateName(){
+      var v = fields.name.el.value.trim();
+      if (!v) { setError(fields.name, 'Name is required'); return false; }
+      if (v.length < 2) { setError(fields.name, 'That name looks a bit short'); return false; }
+      setError(fields.name, ''); return true;
+    }
+
+    function validateEmail(){
+      var v = fields.email.el.value.trim();
+      if (!v) { setError(fields.email, 'Email is required'); return false; }
+      if (!emailPattern.test(v)) { setError(fields.email, 'Enter a valid email address'); return false; }
+      setError(fields.email, ''); return true;
+    }
+
+    function validatePhone(){
+      var raw = fields.phone.el.value.trim();
+      var digitsOnly = raw.replace(/[\s-]/g, '');
+      if (!raw) { setError(fields.phone, 'Phone number is required'); return false; }
+      if (!phonePattern.test(digitsOnly)) { setError(fields.phone, 'Enter a valid 10-digit mobile number'); return false; }
+      setError(fields.phone, ''); return true;
+    }
+
+    function validateMessage(){
+      var v = fields.message.el.value.trim();
+      if (!v) { setError(fields.message, "Tell me a bit about the project"); return false; }
+      if (v.length < 10) { setError(fields.message, 'A little more detail would help'); return false; }
+      setError(fields.message, ''); return true;
+    }
+
+    // Re-validate the moment they leave a field, not just on submit
+    fields.name.el.addEventListener('blur', validateName);
+    fields.email.el.addEventListener('blur', validateEmail);
+    fields.phone.el.addEventListener('blur', validatePhone);
+    fields.message.el.addEventListener('blur', validateMessage);
+
+    // ── FORMSPREE ──
+    // 1. Sign up free at formspree.io, create a form, copy its endpoint.
+    // 2. Paste it below in place of YOUR_FORM_ID.
+    // 3. Submit the form once for real — Formspree emails you a one-time
+    //    confirmation link to verify the endpoint. After that, every
+    //    submission goes straight through automatically.
+    var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+    var sendBtn = form.querySelector('.send-btn');
+    var status = document.getElementById('form-status');
+
+    function setStatus(kind, message){
+      if (!status) return;
+      status.textContent = message;
+      status.classList.remove('is-success', 'is-error');
+      if (kind) status.classList.add(kind === 'success' ? 'is-success' : 'is-error');
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var results = [validateName(), validateEmail(), validatePhone(), validateMessage()];
+      if (results.indexOf(false) !== -1) {
+        var firstInvalid = [fields.name, fields.email, fields.phone, fields.message]
+          .filter(function(f){ return f.el.classList.contains('is-invalid'); })[0];
+        if (firstInvalid) firstInvalid.el.focus();
+        return;
+      }
+
+      sendBtn.disabled = true;
+      sendBtn.textContent = 'Sending...';
+      setStatus(null, '');
+
+      fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      })
+      .then(function(response){
+        if (response.ok) {
+          setStatus('success', "> message sent — I'll get back to you soon.");
+          form.reset();
+        } else {
+          return response.json().then(function(data){
+            var msg = (data && data.errors) ? data.errors.map(function(er){ return er.message; }).join(', ') : 'Something went wrong.';
+            throw new Error(msg);
+          });
+        }
+      })
+      .catch(function(){
+        setStatus('error', "> couldn't send that — try again, or email me directly.");
+      })
+      .finally(function(){
+        sendBtn.disabled = false;
+        sendBtn.textContent = 'Send it over →';
+      });
+    });
+  })();
+
+  // Sitewide terminal glow — follows the mouse on desktop, follows a
+  // dragging finger on mobile/tablet. Present on every page.
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var spotlight = document.querySelector('.site-spotlight');
+  if (spotlight && !reduceMotion) {
+    var tx = 50, ty = 22, sx = 50, sy = 22;
+    function setGlowTarget(clientX, clientY){
+      tx = (clientX / window.innerWidth) * 100;
+      ty = (clientY / window.innerHeight) * 100;
+    }
+    window.addEventListener('mousemove', function(e){
+      setGlowTarget(e.clientX, e.clientY);
+    });
+    window.addEventListener('touchmove', function(e){
+      if (e.touches && e.touches[0]) setGlowTarget(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: true });
+    window.addEventListener('touchstart', function(e){
+      if (e.touches && e.touches[0]) setGlowTarget(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: true });
+    (function glowLoop(){
+      sx += (tx - sx) * 0.08;
+      sy += (ty - sy) * 0.08;
+      spotlight.style.setProperty('--sx', sx + '%');
+      spotlight.style.setProperty('--sy', sy + '%');
+      requestAnimationFrame(glowLoop);
+    })();
+  }
+
+  // Custom cursor — only on devices with a real mouse, never on touch screens
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var dot = document.querySelector('.cursor-dot');
+    var ring = document.querySelector('.cursor-ring');
+    var mx = 0, my = 0, rx = 0, ry = 0;
+
+    window.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      if (dot) { dot.style.left = mx + 'px'; dot.style.top = my + 'px'; }
+    });
+
+    (function loop(){
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
+      requestAnimationFrame(loop);
+    })();
+
+    var hoverTargets = 'a, button, label, .nav-badge, .video-card, .img-placeholder, .clink, .send-btn, .ep-card';
+    document.querySelectorAll(hoverTargets).forEach(function(el){
+      el.addEventListener('mouseenter', function(){ ring && ring.classList.add('is-hovering'); });
+      el.addEventListener('mouseleave', function(){ ring && ring.classList.remove('is-hovering'); });
+    });
+  }
+</script>
+</body>
+</html>

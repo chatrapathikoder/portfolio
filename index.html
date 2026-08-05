@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Chatrapathi Bendapudi — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- SITEWIDE TERMINAL GRID + GLOW -->
+<div class="site-grid" aria-hidden="true"></div>
+<div class="site-spotlight" aria-hidden="true"></div>
+
+<!-- CUSTOM CURSOR (desktop / mouse only) -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    chatrapathiportfoliov1
+    <span class="nav-logo-tag">CB®</span>
+  </a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-check">
+  <label for="nav-toggle" class="nav-burger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </label>
+  <ul class="nav-links">
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-badge" type="button" aria-pressed="false">
+    <div class="bdot"></div>
+    <span class="badge-text">Open to work</span>
+  </button>
+</nav>
+
+<div style="height:calc(4.5rem + env(safe-area-inset-top))"></div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <span class="ticker-label">Craft /</span>
+  <div style="overflow:hidden;flex:1">
+    <div class="ticker-track">
+      <span class="ticker-item">Adobe Premiere Pro</span>
+      <span class="ticker-item">Motion Graphics</span>
+      <span class="ticker-item">Colour Grading</span>
+      <span class="ticker-item">Brand Identity</span>
+      <span class="ticker-item">Creative Direction</span>
+      <span class="ticker-item">Film Marketing</span>
+      <span class="ticker-item">Social Media</span>
+      <span class="ticker-item">Aftermovies</span>
+      <span class="ticker-item">Campaign Design</span>
+      <span class="ticker-item">Visual Storytelling</span>
+      <span class="ticker-item">Adobe Premiere Pro</span>
+      <span class="ticker-item">Motion Graphics</span>
+      <span class="ticker-item">Colour Grading</span>
+      <span class="ticker-item">Brand Identity</span>
+      <span class="ticker-item">Creative Direction</span>
+      <span class="ticker-item">Film Marketing</span>
+      <span class="ticker-item">Social Media</span>
+      <span class="ticker-item">Aftermovies</span>
+      <span class="ticker-item">Campaign Design</span>
+      <span class="ticker-item">Visual Storytelling</span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <div class="hero-corner-r">
+    PORTFOLIO v1.0<br>
+    2025
+  </div>
+
+  <h1 class="hero-title">
+    Chatrapathi<br>
+    Bendapudi
+  </h1>
+
+  <div class="hero-bottom">
+    <p class="hero-desc">
+      Video editor and designer.
+    </p>
+    <div class="hero-links">
+      <a class="hero-link" href="skills.html">
+        <span>See my work</span>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="hero-link" href="mailto:chatrapathibendapud@gmail.com">
+        <span>chatrapathibendapud@gmail.com</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="hero-link" href="https://instagram.com/mp4.scb" target="_blank">
+        <span>@mp4.scb</span>
+        <span class="arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Chatrapathi Bendapudi &nbsp;·&nbsp; GITAM University, Vizag</span>
+  <div class="footer-links">
+    <a href="https://instagram.com/mp4.scb" target="_blank">@mp4.scb</a>
+    <a href="mailto:chatrapathibendapud@gmail.com">Email</a>
+    <a href="#top">↑ Top</a>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, easing: 'ease-out-quart', once: false, offset: 60 });
+
+  // "Open to work" badge — tap/click to flip between available (green) and busy (red)
+  document.querySelectorAll('.nav-badge').forEach(function(badge){
+    var label = badge.querySelector('.badge-text');
+    badge.addEventListener('click', function(){
+      var busy = badge.classList.toggle('is-busy');
+      badge.setAttribute('aria-pressed', busy ? 'true' : 'false');
+      if (label) label.textContent = busy ? 'Not available' : 'Open to work';
+    });
+  });
+
+  // Sitewide terminal glow — follows the mouse on desktop, follows a
+  // dragging finger on mobile/tablet. Present on every page.
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var spotlight = document.querySelector('.site-spotlight');
+  if (spotlight && !reduceMotion) {
+    var tx = 50, ty = 22, sx = 50, sy = 22;
+    function setGlowTarget(clientX, clientY){
+      tx = (clientX / window.innerWidth) * 100;
+      ty = (clientY / window.innerHeight) * 100;
+    }
+    window.addEventListener('mousemove', function(e){
+      setGlowTarget(e.clientX, e.clientY);
+    });
+    window.addEventListener('touchmove', function(e){
+      if (e.touches && e.touches[0]) setGlowTarget(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: true });
+    window.addEventListener('touchstart', function(e){
+      if (e.touches && e.touches[0]) setGlowTarget(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: true });
+    (function glowLoop(){
+      sx += (tx - sx) * 0.08;
+      sy += (ty - sy) * 0.08;
+      spotlight.style.setProperty('--sx', sx + '%');
+      spotlight.style.setProperty('--sy', sy + '%');
+      requestAnimationFrame(glowLoop);
+    })();
+  }
+
+  // Custom cursor — only on devices with a real mouse, never on touch screens
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var dot = document.querySelector('.cursor-dot');
+    var ring = document.querySelector('.cursor-ring');
+    var mx = 0, my = 0, rx = 0, ry = 0;
+
+    window.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      if (dot) { dot.style.left = mx + 'px'; dot.style.top = my + 'px'; }
+    });
+
+    (function loop(){
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
+      requestAnimationFrame(loop);
+    })();
+
+    var hoverTargets = 'a, button, label, .nav-badge, .video-card, .img-placeholder, .clink, .send-btn, .ep-card';
+    document.querySelectorAll(hoverTargets).forEach(function(el){
+      el.addEventListener('mouseenter', function(){ ring && ring.classList.add('is-hovering'); });
+      el.addEventListener('mouseleave', function(){ ring && ring.classList.remove('is-hovering'); });
+    });
+  }
+</script>
+</body>
+</html>
